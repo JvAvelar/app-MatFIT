@@ -4,35 +4,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import engsoft.matfit.databinding.FragmentGalleryBinding
+import engsoft.matfit.databinding.FragmentFuncionarioBinding
 
 class FuncionarioFragment : Fragment() {
 
-    private var _binding: FragmentGalleryBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentFuncionarioBinding? = null
     private val binding get() = _binding!!
+    private lateinit var viewModel: FuncionarioViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?
+        savedInstanceState: Bundle?,
     ): View {
-        val funcionarioViewModel =
-            ViewModelProvider(this).get(FuncionarioViewModel::class.java)
+        _binding = FragmentFuncionarioBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this)[FuncionarioViewModel::class.java]
 
-        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textGallery
-        funcionarioViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {
