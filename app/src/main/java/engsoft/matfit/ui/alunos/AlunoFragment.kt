@@ -4,35 +4,26 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import engsoft.matfit.databinding.FragmentHomeBinding
+import engsoft.matfit.databinding.FragmentAlunoBinding
 
 class AlunoFragment : Fragment() {
 
-    private var _binding: FragmentHomeBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentAlunoBinding? = null
     private val binding get() = _binding!!
+    private lateinit var viewModel: AlunoViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val alunoViewModel =
-            ViewModelProvider(this).get(AlunoViewModel::class.java)
+        _binding = FragmentAlunoBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this)[AlunoViewModel::class.java]
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        val textView: TextView = binding.textHome
-        alunoViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {
