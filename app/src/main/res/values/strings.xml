@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">MatFIT</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="ERROR_UNEXPECTED">Um erro inesperado ocorreu: </string>
+    <string name="ERROR_LOAD_TASK">Erro ao carregar a tarefa.</string>
+    <string name="ERROR_INTERNET_CONNECTION">Conexão à internet necessária para uso da applicação.</string>
+
+    <string name="email">E-mail</string>
+    <string name="password">Senha</string>
+    <string name="login">Login</string>
+    <string name="enter">Entrar</string>
+    <string name="exit">Sair</string>
+    <string name="text_user_name">NOME USUÁRIO</string>
+    <string name="textAlunos">Alunos</string>
+    <string name="textFuncionarios">Funcionários</string>
+    <string name="textEquipamentos">Equipamentos</string>
+    <string name="textRegister">Cadastrar aluno</string>
+    <string name="textUpdate">Atualizar aluno</string>
+    <string name="cpf">CPF</string>
+    <string name="name">Nome</string>
+    <string name="sport">Esporte</string>
+    <string name="day">Dia</string>
+    <string name="register">Cadastrar</string>
+    <string name="update">Atualizar</string>
+    <string name="textErrorCpf">CPF inválido</string>
+    <string name="textErrorName">Insira um nome válido</string>
+    <string name="textErrorSport">Insira um esporte válido</string>
+    <string name="textErrorCpfExistent">CPF já está cadastrado!</string>
+    <string name="textSucessRegister">Aluno cadastrado com sucesso!</string>
+    <string name="textSucessUpdated">Aluno atualizado com sucesso!</string>
+    <string name="textSucessDeleted">Aluno deletado com sucesso!</string>
+    <string name="textCardName">Aluno: </string>
+    <string name="textCardCpf">CPF: </string>
+    <string name="textCardSport">Esporte: </string>
+    <string name="textCardDay">Data do pagamento: </string>
+    <string name="textTotalRegisted">Alunos cadastrados:</string>
+    <string name="textResultRegisted">0</string>
+    <string name="deleteAluno">Excluir aluno</string>
+    <string name="textConfirmationDelete">Tem certeza que deseja excluir este aluno?</string>
+    <string name="yes">Sim</string>
+    <string name="cancel">Cancelar</string>
+    <string name="cpfNotFound">cpf not found</string>
+    <string name="nameNotFound">name not found</string>
+    <string name="sportNotFound">sport not found</string>
+
+
+</resources>

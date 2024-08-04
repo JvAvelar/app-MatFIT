@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_aluno">
+
+    <fragment
+        android:id="@+id/nav_aluno"
+        android:name="engsoft.matfit.ui.alunos.AlunoFragment"
+        android:label="@string/textAlunos"
+        tools:layout="@layout/fragment_aluno" />
+
+    <fragment
+        android:id="@+id/nav_funcionario"
+        android:name="engsoft.matfit.ui.funcionarios.FuncionarioFragment"
+        android:label="@string/textFuncionarios"
+        tools:layout="@layout/fragment_funcionario" />
+
+    <fragment
+        android:id="@+id/nav_equipamento"
+        android:name="engsoft.matfit.ui.equipamentos.EquipamentoFragment"
+        android:label="@string/textEquipamentos"
+        tools:layout="@layout/fragment_equipamento" />
+</navigation>
