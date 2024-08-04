@@ -4,35 +4,25 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import engsoft.matfit.databinding.FragmentSlideshowBinding
+import engsoft.matfit.databinding.FragmentEquipamentoBinding
 
 class EquipamentoFragment : Fragment() {
 
-    private var _binding: FragmentSlideshowBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentEquipamentoBinding? = null
     private val binding get() = _binding!!
+    private lateinit var viewModel: EquipamentoViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val equipamentoViewModel =
-            ViewModelProvider(this).get(EquipamentoViewModel::class.java)
+        _binding = FragmentEquipamentoBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this)[EquipamentoViewModel::class.java]
 
-        _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
-        val root: View = binding.root
-
-        val textView: TextView = binding.textSlideshow
-        equipamentoViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
-        }
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {
