@@ -1,4 +1,4 @@
-package com.devmasterteam.tasks.service.model
+package engsoft.matfit.service.model
 
 data class Aluno(
     //   @SerializedName("cpf")
