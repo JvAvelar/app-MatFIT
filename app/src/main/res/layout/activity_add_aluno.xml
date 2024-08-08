@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/shape_screens"
+    android:orientation="vertical"
+    tools:context=".ui.alunos.AddAlunoActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/iconBack"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textRegister"
+            style="@style/TextTitles"
+            android:text="@string/textRegister"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <EditText
+        android:id="@+id/editCpf"
+        style="@style/EditText"
+        android:hint="@string/cpf"
+        android:inputType="number"
+        android:maxLength="11" />
+
+    <EditText
+        android:id="@+id/editName"
+        style="@style/EditText"
+        android:hint="@string/name"
+        android:inputType="textPersonName"
+        android:maxLength="20" />
+
+    <EditText
+        android:id="@+id/editSport"
+        style="@style/EditText"
+        android:hint="@string/sport"
+        android:inputType="textPersonName"
+        android:maxLength="20" />
+
+    <Button
+        android:id="@+id/buttonAdd"
+        style="@style/Buttons"
+        android:text="@string/register" />
+
+</LinearLayout>
