@@ -1,4 +1,4 @@
-package engsoft.matfit.ui.funcionarios
+package engsoft.matfit.view.funcionarios
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
