@@ -1,0 +1,123 @@
+package engsoft.matfit.view.alunos
+
+import android.annotation.SuppressLint
+import android.content.Intent
+import android.os.Bundle
+import android.util.Log
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
+import engsoft.matfit.R
+import engsoft.matfit.databinding.FragmentAlunoBinding
+import engsoft.matfit.listener.OnAlunoListener
+import engsoft.matfit.view.alunos.adapter.AlunoAdapter
+import engsoft.matfit.view.viewmodel.AlunoViewModel
+
+class AlunoFragment : Fragment() {
+
+    private var _binding: FragmentAlunoBinding? = null
+    private val binding get() = _binding!!
+    private lateinit var viewModel: AlunoViewModel
+    private val adapter = AlunoAdapter()
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View {
+        _binding = FragmentAlunoBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProvider(this)[AlunoViewModel::class.java]
+
+        // Layout
+        binding.recyclerListAlunos.layoutManager = LinearLayoutManager(context)
+        // Adapter
+        binding.recyclerListAlunos.adapter = adapter
+
+        val listener = object : OnAlunoListener {
+            override fun onUpdate(cpf: String) {
+                clickUpdate(cpf)
+            }
+
+            override fun onDelete(cpf: String) {
+                AlertDialog.Builder(requireContext()).setTitle(getString(R.string.deleteAluno))
+                    .setMessage(getString(R.string.textConfirmationDelete))
+                    .setPositiveButton(getString(R.string.yes)) { dialog, which ->
+                        viewModel.deletarAluno(cpf)
+                    }.setNegativeButton(getString(R.string.cancel)) { dialog, which -> null }
+                    .create().show()
+            }
+
+            override fun OnPayment(cpf: String) {
+                // startActivity(Intent(context, Payment::class.java))
+            }
+        }
+
+        binding.btnAdd.setOnClickListener {
+            startActivity(Intent(context, AddAlunoActivity::class.java))
+        }
+
+        viewModel.listarAlunos()
+
+        adapter.attachListener(listener)
+
+        observadores()
+
+        return binding.root
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.listarAlunos()
+    }
+
+    private fun clickUpdate(cpf: String) {
+        viewModel.buscarAluno(cpf)
+        viewModel.buscarAluno.observe(viewLifecycleOwner) { aluno ->
+            Log.i("info_onUpdate", "Bem sucedido -> $aluno")
+            if (aluno != null) {
+                val intent = Intent(context, UpdateAlunoActivity::class.java)
+                intent.putExtra("cpf", aluno.cpf)
+                intent.putExtra("nome", aluno.nome)
+                intent.putExtra("esporte", aluno.esporte)
+                startActivity(intent)
+            } else {
+                Log.i("info_onUpdate", "Erro de execução -> $aluno")
+                Toast.makeText(requireContext(), "Aluno não encontrado", Toast.LENGTH_SHORT).show()
+            }
+        }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun observadores() {
+        viewModel.listarAlunos.observe(viewLifecycleOwner) { listaAlunos ->
+            adapter.updateAlunos(listaAlunos)
+            binding.textResult.text = " ${listaAlunos.count()}"
+        }
+
+        viewModel.deletar.observe(viewLifecycleOwner) {
+            if (!it) {
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.textSucessDeleted),
+                    Toast.LENGTH_SHORT
+                ).show()
+                viewModel.listarAlunos()
+            } else
+                Toast.makeText(
+                    requireContext(),
+                    getString(R.string.textFailureDeleted),
+                    Toast.LENGTH_SHORT
+                ).show()
+        }
+    }
+}
