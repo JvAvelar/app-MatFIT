@@ -1,4 +1,4 @@
-package engsoft.matfit.ui.funcionarios
+package engsoft.matfit.view.funcionarios
 
 import android.os.Bundle
 import android.view.LayoutInflater
