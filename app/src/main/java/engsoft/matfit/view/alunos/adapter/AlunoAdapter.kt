@@ -1,13 +1,13 @@
-package engsoft.matfit.ui.alunos.adapter
+package engsoft.matfit.view.alunos.adapter
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import engsoft.matfit.databinding.CardModelBinding
-import engsoft.matfit.service.listener.OnAlunoListener
-import engsoft.matfit.service.model.Aluno
-import engsoft.matfit.ui.alunos.viewholder.AlunoViewHolder
+import engsoft.matfit.listener.OnAlunoListener
+import engsoft.matfit.model.Aluno
+import engsoft.matfit.view.alunos.viewholder.AlunoViewHolder
 
 class AlunoAdapter : RecyclerView.Adapter<AlunoViewHolder>() {
 
