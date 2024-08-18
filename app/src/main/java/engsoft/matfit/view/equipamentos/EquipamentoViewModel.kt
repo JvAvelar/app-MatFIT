@@ -1,4 +1,4 @@
-package engsoft.matfit.ui.equipamentos
+package engsoft.matfit.view.equipamentos
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
