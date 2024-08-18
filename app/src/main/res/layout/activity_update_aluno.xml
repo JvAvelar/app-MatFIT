@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/shape_screens"
     android:orientation="vertical"
-    tools:context=".ui.alunos.UpdateAlunoActivity">
+    tools:context=".view.alunos.UpdateAlunoActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -36,15 +36,6 @@
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-    <EditText
-        android:id="@+id/editCpf"
-        style="@style/EditText"
-        android:enabled="false"
-        android:gravity="center"
-        android:hint="@string/cpf"
-        android:textColorHint="@color/black" />
 
     <EditText
         android:id="@+id/editName"
