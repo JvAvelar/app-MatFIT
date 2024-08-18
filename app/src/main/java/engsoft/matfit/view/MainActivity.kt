@@ -1,8 +1,7 @@
-package engsoft.matfit
+package engsoft.matfit.view
 
 import android.os.Bundle
 import android.view.Menu
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
@@ -13,6 +12,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import androidx.navigation.ui.NavigationUI
+import engsoft.matfit.R
 import engsoft.matfit.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
