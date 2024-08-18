@@ -16,13 +16,13 @@
         android:theme="@style/Theme.MatFIT"
         tools:targetApi="31">
         <activity
-            android:name=".ui.alunos.UpdateAlunoActivity"
+            android:name=".view.alunos.UpdateAlunoActivity"
             android:exported="false" />
         <activity
-            android:name=".ui.alunos.AddAlunoActivity"
+            android:name=".view.alunos.AddAlunoActivity"
             android:exported="false" />
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.MatFIT.NoActionBar">
