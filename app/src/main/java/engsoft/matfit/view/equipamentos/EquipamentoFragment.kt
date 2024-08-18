@@ -1,4 +1,4 @@
-package engsoft.matfit.ui.equipamentos
+package engsoft.matfit.view.equipamentos
 
 import android.os.Bundle
 import android.view.LayoutInflater
