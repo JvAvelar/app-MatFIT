@@ -1,4 +1,4 @@
-package engsoft.matfit.service.listener
+package engsoft.matfit.listener
 
 interface OnAlunoListener {
     fun onUpdate(cpf: String)
