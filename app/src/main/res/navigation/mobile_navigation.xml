@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_aluno"
-        android:name="engsoft.matfit.ui.alunos.AlunoFragment"
+        android:name="engsoft.matfit.view.alunos.AlunoFragment"
         android:label="@string/textAlunos"
         tools:layout="@layout/fragment_aluno" />
 
     <fragment
         android:id="@+id/nav_funcionario"
-        android:name="engsoft.matfit.ui.funcionarios.FuncionarioFragment"
+        android:name="engsoft.matfit.view.funcionarios.FuncionarioFragment"
         android:label="@string/textFuncionarios"
         tools:layout="@layout/fragment_funcionario" />
 
     <fragment
         android:id="@+id/nav_equipamento"
-        android:name="engsoft.matfit.ui.equipamentos.EquipamentoFragment"
+        android:name="engsoft.matfit.view.equipamentos.EquipamentoFragment"
         android:label="@string/textEquipamentos"
         tools:layout="@layout/fragment_equipamento" />
 </navigation>
