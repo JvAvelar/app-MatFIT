@@ -48,6 +48,11 @@
     <string name="sportNotFound">sport not found</string>
     <string name="textFailureDeleted">Falha ao deletar. Verifique!</string>
     <string name="textFailureUpdated">Falha ao atualizar. Verifique!</string>
+    <string name="textFieldEmptyLogin">O campo deve ser preenchido com seu nome.</string>
+    <string name="textNameInvalid">Insira um nome válido!</string>
+    <string name="textTypeName">Digite seu nome</string>
+    <string name="textEnter">Entrar</string>
+    <string name="textExit">Sair</string>
 
 
 </resources>
