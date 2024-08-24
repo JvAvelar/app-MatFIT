@@ -16,5 +16,9 @@
             android:id="@+id/nav_equipamento"
             android:icon="@drawable/ic_equipamento"
             android:title="@string/textEquipamentos" />
+        <item
+            android:id="@+id/nav_sair"
+            android:icon="@drawable/ic_logout"
+            android:title="@string/textExit" />
     </group>
 </menu>
