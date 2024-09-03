@@ -16,10 +16,10 @@
 
         <ImageView
             android:id="@+id/iconBack"
-            android:layout_marginStart="30dp"
-            android:layout_marginTop="30dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginStart="30dp"
+            android:layout_marginTop="30dp"
             android:src="@drawable/ic_back"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -28,17 +28,15 @@
             android:id="@+id/textRegister"
             style="@style/TextTitles"
             android:text="@string/textRegister"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <EditText
         android:id="@+id/editCpf"
         style="@style/EditText"
-        android:background="@drawable/custom_input"
         android:hint="@string/cpf"
         android:inputType="number"
         android:maxLength="11" />
@@ -46,7 +44,6 @@
     <EditText
         android:id="@+id/editName"
         style="@style/EditText"
-        android:background="@drawable/custom_input"
         android:hint="@string/name"
         android:inputType="textPersonName"
         android:maxLength="20" />
@@ -54,7 +51,6 @@
     <EditText
         android:id="@+id/editSport"
         style="@style/EditText"
-        android:background="@drawable/custom_input"
         android:hint="@string/sport"
         android:inputType="textPersonName"
         android:maxLength="20" />
