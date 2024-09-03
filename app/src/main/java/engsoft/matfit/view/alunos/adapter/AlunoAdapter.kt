@@ -4,7 +4,7 @@ import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import engsoft.matfit.databinding.CardModelBinding
+import engsoft.matfit.databinding.CardModelAlunoBinding
 import engsoft.matfit.listener.OnAlunoListener
 import engsoft.matfit.model.Aluno
 import engsoft.matfit.view.alunos.viewholder.AlunoViewHolder
@@ -16,7 +16,7 @@ class AlunoAdapter : RecyclerView.Adapter<AlunoViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): AlunoViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        val itemBinding = CardModelBinding.inflate(inflater, parent, false)
+        val itemBinding = CardModelAlunoBinding.inflate(inflater, parent, false)
         return AlunoViewHolder(itemBinding, listener)
     }
 
