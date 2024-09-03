@@ -33,11 +33,14 @@
     <string name="textFailureRegister">Não foi possivel cadastrar. Verifique!</string>
     <string name="textSucessUpdated">Atualizado com sucesso!</string>
     <string name="textSucessDeleted">Deletado com sucesso!</string>
-    <string name="textCardName">Aluno: </string>
+    <string name="textCardName">Nome: </string>
     <string name="textCardCpf">CPF: </string>
     <string name="textCardSport">Esporte: </string>
     <string name="textCardDay">Data do pagamento: </string>
-    <string name="textTotalRegisted">Alunos cadastrados:</string>
+    <string name="textCardFuncao">Função: </string>
+    <string name="textCardCargaHoraria">Carga Horária: </string>
+    <string name="textTotalAlunosRegisted">Alunos cadastrados:</string>
+    <string name="textTotalFuncionariosRegisted">Funcionários contratados:</string>
     <string name="textResultRegisted">0</string>
     <string name="deleteAluno">Excluir aluno</string>
     <string name="textConfirmationDelete">Tem certeza que deseja excluir?</string>
@@ -53,6 +56,11 @@
     <string name="textTypeName">Digite seu nome</string>
     <string name="textEnter">Entrar</string>
     <string name="textExit">Sair</string>
+    <string name="textRegisterFuncionario">Cadastrar Funcionário</string>
+    <string name="textFuncao">Função</string>
+    <string name="textCargHoraria">Carga Horária</string>
+    <string name="textUpdateFuncionario">Atualizar Funcionário</string>
+    <string name="textMatFit">MAT-FIT</string>
 
 
 </resources>
