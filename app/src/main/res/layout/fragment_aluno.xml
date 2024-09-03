@@ -22,7 +22,7 @@
         <TextView
             android:id="@+id/textQuantity"
             style="@style/CardTextNormal"
-            android:text="@string/textTotalRegisted"
+            android:text="@string/textTotalAlunosRegisted"
             app:layout_constraintEnd_toStartOf="@id/textResult"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
