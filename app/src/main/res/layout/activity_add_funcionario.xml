@@ -44,6 +44,7 @@
         android:id="@+id/cpf"
         style="@style/EditText"
         android:hint="@string/cpf"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text" />
@@ -52,6 +53,7 @@
         android:id="@+id/name"
         style="@style/EditText"
         android:hint="@string/name"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cpf" />
@@ -60,6 +62,7 @@
         android:id="@+id/funcao"
         style="@style/EditText"
         android:hint="@string/textFuncao"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
@@ -67,6 +70,7 @@
     <EditText
         android:id="@+id/cargaHoraria"
         style="@style/EditText"
+        android:inputType="number"
         android:hint="@string/textCargHoraria"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
