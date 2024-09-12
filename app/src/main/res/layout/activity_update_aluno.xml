@@ -29,7 +29,7 @@
         <TextView
             android:id="@+id/textRegister"
             style="@style/TextTitles"
-            android:text="@string/textUpdate"
+            android:text="@string/textUpdateAluno"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
