@@ -23,20 +23,11 @@
             android:id="@+id/textQuantity"
             style="@style/CardTextNormal"
             android:text="@string/textTotalAlunosRegisted"
-            app:layout_constraintEnd_toStartOf="@id/textResult"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textResult"
-            style="@style/CardTextDo"
-            android:text="@string/textResultRegisted"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="@id/textQuantity"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/textQuantity"
-            app:layout_constraintTop_toTopOf="@id/textQuantity" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
