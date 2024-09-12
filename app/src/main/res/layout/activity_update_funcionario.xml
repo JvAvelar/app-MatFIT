@@ -43,6 +43,7 @@
         android:id="@+id/name"
         style="@style/EditText"
         android:hint="@string/name"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text" />
@@ -51,6 +52,7 @@
         android:id="@+id/funcao"
         style="@style/EditText"
         android:hint="@string/textFuncao"
+        android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/name" />
@@ -59,6 +61,7 @@
         android:id="@+id/cargaHoraria"
         style="@style/EditText"
         android:hint="@string/textCargHoraria"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/funcao" />
