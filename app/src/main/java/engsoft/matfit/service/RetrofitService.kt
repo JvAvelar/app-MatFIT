@@ -1,4 +1,4 @@
-package engsoft.matfit.service.repository
+package engsoft.matfit.service
 
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
