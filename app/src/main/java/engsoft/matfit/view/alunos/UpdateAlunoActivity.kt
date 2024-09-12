@@ -2,12 +2,12 @@ package engsoft.matfit.view.alunos
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import engsoft.matfit.R
 import engsoft.matfit.databinding.ActivityUpdateAlunoBinding
-import engsoft.matfit.model.AtualizarAlunoRequest
+import engsoft.matfit.model.AlunoUpdate
+import engsoft.matfit.model.BaseValidacao
 import engsoft.matfit.view.viewmodel.AlunoViewModel
 
 class UpdateAlunoActivity : AppCompatActivity() {
@@ -16,6 +16,7 @@ class UpdateAlunoActivity : AppCompatActivity() {
     }
     private lateinit var viewModel: AlunoViewModel
     private lateinit var cpf: String
+    private val baseValidacao = BaseValidacao(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,12 +44,12 @@ class UpdateAlunoActivity : AppCompatActivity() {
         val nome = binding.editName.text.toString()
         val esporte = binding.editSport.text.toString()
 
-        if (!validarNome(nome))
-            toast(getString(R.string.textErrorName))
-        else if (!validarEsporte(esporte))
-            toast(getString(R.string.textErrorSport))
+        if (!baseValidacao.validarNome(nome))
+            baseValidacao.toast(getString(R.string.textErrorName))
+        else if (!baseValidacao.validarEsporte(esporte))
+            baseValidacao.toast(getString(R.string.textErrorSport))
         else {
-            val aluno = AtualizarAlunoRequest(nome, esporte)
+            val aluno = AlunoUpdate(nome, esporte)
             viewModel.atualizarAluno(cpf, aluno)
         }
         Log.i("info_UpdateActivity -> atualizar", "Atualização bem sucedida")
@@ -67,29 +68,10 @@ class UpdateAlunoActivity : AppCompatActivity() {
     private fun observadores() {
         viewModel.atualizarAluno.observe(this) { aluno ->
             if (aluno != null) {
+                baseValidacao.toast(getString(R.string.textSucessUpdatedAluno))
                 finish()
-                Toast.makeText(
-                    applicationContext,
-                    getString(R.string.textSucessUpdated),
-                    Toast.LENGTH_SHORT
-                ).show()
             } else
-                Toast.makeText(
-                    applicationContext,
-                    getString(R.string.textFailureUpdated), Toast.LENGTH_SHORT
-                ).show()
+                baseValidacao.toast(getString(R.string.textFailureUpdatedAluno))
         }
     }
-
-    private fun toast(message: String) {
-        Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
-    }
-
-    // Faz a validação do nome
-    private fun validarNome(nome: String) =
-        (nome.isNotBlank() && nome.isNotEmpty() && nome.length >= 4)
-
-    // Faz a validação do esporte
-    private fun validarEsporte(esporte: String) =
-        (esporte.length >= 3 && esporte.isNotBlank() && esporte.isNotEmpty())
 }
