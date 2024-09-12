@@ -40,7 +40,7 @@ class AlunoFragment : Fragment() {
 
         val listener = object : OnAlunoListener {
             override fun onUpdate(cpf: String) {
-                clickUpdate(cpf)
+                clickAtualizar(cpf)
             }
 
             override fun onDelete(cpf: String) {
@@ -80,7 +80,7 @@ class AlunoFragment : Fragment() {
         viewModel.listarAlunos()
     }
 
-    private fun clickUpdate(cpf: String) {
+    private fun clickAtualizar(cpf: String) {
         viewModel.buscarAluno(cpf)
         viewModel.buscarAluno.observe(viewLifecycleOwner) { aluno ->
             Log.i("info_onUpdate", "Bem sucedido -> $aluno")
@@ -92,7 +92,7 @@ class AlunoFragment : Fragment() {
                 startActivity(intent)
             } else {
                 Log.i("info_onUpdate", "Erro de execução -> $aluno")
-                Toast.makeText(requireContext(), "Aluno não encontrado", Toast.LENGTH_SHORT).show()
+                toast("Aluno não encontrado")
             }
         }
     }
@@ -101,23 +101,18 @@ class AlunoFragment : Fragment() {
     private fun observadores() {
         viewModel.listarAlunos.observe(viewLifecycleOwner) { listaAlunos ->
             adapter.updateAlunos(listaAlunos)
-            binding.textResult.text = " ${listaAlunos.count()}"
         }
 
         viewModel.deletar.observe(viewLifecycleOwner) {
             if (!it) {
-                Toast.makeText(
-                    requireContext(),
-                    getString(R.string.textSucessDeleted),
-                    Toast.LENGTH_SHORT
-                ).show()
+                toast(getString(R.string.textSucessDeletedAluno))
                 viewModel.listarAlunos()
             } else
-                Toast.makeText(
-                    requireContext(),
-                    getString(R.string.textFailureDeleted),
-                    Toast.LENGTH_SHORT
-                ).show()
+                toast(getString(R.string.textFailureDeletedAluno))
         }
+    }
+
+    private fun toast(msg: String){
+        Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
     }
 }
