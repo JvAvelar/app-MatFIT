@@ -1,19 +1,20 @@
 package engsoft.matfit.view.viewmodel
 
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import engsoft.matfit.model.Aluno
 import engsoft.matfit.model.AlunoRequest
 import engsoft.matfit.model.AlunoResponse
-import engsoft.matfit.model.AtualizarAlunoRequest
+import engsoft.matfit.model.AlunoUpdate
 import engsoft.matfit.service.repository.AlunoRepository
 import kotlinx.coroutines.launch
 
-class AlunoViewModel : ViewModel() {
+class AlunoViewModel(application: Application) : AndroidViewModel(application) {
 
-    private val repository = AlunoRepository()
+    private val repository = AlunoRepository(application.applicationContext)
 
     private val _listarAlunos = MutableLiveData<List<Aluno>>()
     val listarAlunos: LiveData<List<Aluno>> = _listarAlunos
@@ -59,7 +60,7 @@ class AlunoViewModel : ViewModel() {
         }
     }
 
-    fun atualizarAluno(cpf: String, aluno: AtualizarAlunoRequest) {
+    fun atualizarAluno(cpf: String, aluno: AlunoUpdate) {
         viewModelScope.launch {
             try {
                 _atualizarAluno.postValue(repository.atualizarAluno(cpf, aluno))
