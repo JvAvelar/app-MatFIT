@@ -1,12 +1,16 @@
 package engsoft.matfit.service.repository
 
+import android.content.Context
 import android.util.Log
 import engsoft.matfit.model.Aluno
 import engsoft.matfit.model.AlunoRequest
 import engsoft.matfit.model.AlunoResponse
-import engsoft.matfit.model.AtualizarAlunoRequest
+import engsoft.matfit.model.AlunoUpdate
+import engsoft.matfit.model.BaseValidacao
+import engsoft.matfit.service.AlunoService
+import engsoft.matfit.service.RetrofitService
 
-class AlunoRepository {
+class AlunoRepository(context: Context) : BaseValidacao(context) {
 
     private val remote = RetrofitService.getService(AlunoService::class.java)
 
@@ -15,10 +19,12 @@ class AlunoRepository {
             val retorno = remote.listarAlunos()
             if (retorno.isSuccessful) {
                 retorno.body()?.let { list ->
+                    Log.i("info_listarAlunos", "Operação bem-sucedida = $list")
                     return list
                 }
             }
         } catch (e: Exception) {
+            Log.i("info_listarAlunos", "Erro durante a execução: ${e.message}")
             e.printStackTrace()
         }
         return emptyList()
@@ -41,7 +47,7 @@ class AlunoRepository {
                 )
             }
         } catch (e: Exception) {
-            Log.i("info_cadastrarAluno", "Erro durante a exclusão: ${e.message}")
+            Log.i("info_cadastrarAluno", "Erro durante a execusão: ${e.message}")
             e.printStackTrace()
         }
         return sucesso
@@ -94,7 +100,7 @@ class AlunoRepository {
         return aluno
     }
 
-    suspend fun atualizarAluno(cpf: String, aluno: AtualizarAlunoRequest): AlunoResponse? {
+    suspend fun atualizarAluno(cpf: String, aluno: AlunoUpdate): AlunoResponse? {
         var alunoRetorno: AlunoResponse? = null
         try {
             val retorno = remote.atualizarAluno(cpf, aluno)
