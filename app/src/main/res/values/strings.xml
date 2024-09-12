@@ -17,8 +17,7 @@
     <string name="textAlunos">Alunos</string>
     <string name="textFuncionarios">Funcionários</string>
     <string name="textEquipamentos">Equipamentos</string>
-    <string name="textRegister">Cadastrar aluno</string>
-    <string name="textUpdate">Atualizar aluno</string>
+
     <string name="cpf">CPF</string>
     <string name="name">Nome</string>
     <string name="sport">Esporte</string>
@@ -27,20 +26,29 @@
     <string name="update">Atualizar</string>
     <string name="textErrorCpf">CPF inválido</string>
     <string name="textErrorName">Insira um nome válido</string>
+<!--    ALUNO-->
     <string name="textErrorSport">Insira um esporte válido</string>
+    <string name="textErrorFuncao">Insira uma funcão válida</string>
     <string name="textErrorCpfExistent">CPF já está cadastrado!</string>
-    <string name="textSucessRegister">Cadastrado com sucesso!</string>
-    <string name="textFailureRegister">Não foi possivel cadastrar. Verifique!</string>
-    <string name="textSucessUpdated">Atualizado com sucesso!</string>
-    <string name="textSucessDeleted">Deletado com sucesso!</string>
+    <string name="textRegisterAluno">Cadastrar aluno</string>
+    <string name="textUpdateAluno">Atualizar aluno</string>
+    <string name="textSucessRegisterAluno">Aluno cadastrado com sucesso!</string>
+    <string name="textSucessUpdatedAluno">Aluno atualizado com sucesso!</string>
+    <string name="textSucessDeletedAluno">Aluno deletado com sucesso!</string>
+    <string name="textFailureRegisterAluno">Falha ao cadastrar o aluno. Verifique!</string>
+    <string name="textFailureDeletedAluno">Falha ao deletar o aluno. Verifique!</string>
+    <string name="textFailureUpdatedAluno">Falha ao atualizar o aluno. Verifique!</string>
+
     <string name="textCardName">Nome: </string>
     <string name="textCardCpf">CPF: </string>
     <string name="textCardSport">Esporte: </string>
     <string name="textCardDay">Data do pagamento: </string>
+    <string name="textTotalAlunosRegisted">Lista de Alunos</string>
+
+<!--    FUNCIONARIO-->
     <string name="textCardFuncao">Função: </string>
     <string name="textCardCargaHoraria">Carga Horária: </string>
-    <string name="textTotalAlunosRegisted">Alunos cadastrados:</string>
-    <string name="textTotalFuncionariosRegisted">Funcionários contratados:</string>
+    <string name="textTotalFuncionariosRegisted">Lista de Funcionários</string>
     <string name="textResultRegisted">0</string>
     <string name="deleteAluno">Excluir aluno</string>
     <string name="textConfirmationDelete">Tem certeza que deseja excluir?</string>
@@ -49,8 +57,7 @@
     <string name="cpfNotFound">cpf not found</string>
     <string name="nameNotFound">name not found</string>
     <string name="sportNotFound">sport not found</string>
-    <string name="textFailureDeleted">Falha ao deletar. Verifique!</string>
-    <string name="textFailureUpdated">Falha ao atualizar. Verifique!</string>
+
     <string name="textFieldEmptyLogin">O campo deve ser preenchido com seu nome.</string>
     <string name="textNameInvalid">Insira um nome válido!</string>
     <string name="textTypeName">Digite seu nome</string>
@@ -61,6 +68,9 @@
     <string name="textCargHoraria">Carga Horária</string>
     <string name="textUpdateFuncionario">Atualizar Funcionário</string>
     <string name="textMatFit">MAT-FIT</string>
+    <string name="textSuccessRegisterFuncionario">Funcionario cadastrado com sucesso!</string>
+    <string name="textFailureRegisterFuncionario">Falha ao cadastrar funcionário. Verifique!</string>
+    <string name="textValidarCargaHoraria">A carga horária deve ser maior que 0.</string>
 
 
 </resources>
