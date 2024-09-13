@@ -6,13 +6,12 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import engsoft.matfit.databinding.CardModelFuncionarioBinding
 import engsoft.matfit.listener.OnFuncionarioListener
-import engsoft.matfit.model.Aluno
-import engsoft.matfit.model.Funcionario
+import engsoft.matfit.model.FuncionarioDTO
 import engsoft.matfit.view.funcionarios.viewholder.FuncionarioViewHolder
 
 class FuncionarioAdapter : RecyclerView.Adapter<FuncionarioViewHolder>() {
 
-    private var listFuncionarios: List<Funcionario> = arrayListOf()
+    private var listFuncionarios: List<FuncionarioDTO> = arrayListOf()
     private lateinit var listener: OnFuncionarioListener
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FuncionarioViewHolder {
@@ -35,7 +34,7 @@ class FuncionarioAdapter : RecyclerView.Adapter<FuncionarioViewHolder>() {
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun updateAlunos(list: List<Funcionario>){
+    fun updateFuncionario(list: List<FuncionarioDTO>){
         listFuncionarios = list
         notifyDataSetChanged()
     }
