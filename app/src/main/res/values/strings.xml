@@ -71,6 +71,8 @@
     <string name="textSuccessRegisterFuncionario">Funcionario cadastrado com sucesso!</string>
     <string name="textFailureRegisterFuncionario">Falha ao cadastrar funcionário. Verifique!</string>
     <string name="textValidarCargaHoraria">A carga horária deve ser maior que 0.</string>
+    <string name="textSuccessDeleteFuncionario">Funcionário deletado com sucesso!</string>
+    <string name="textFailureDeleteFuncionario">Falha ao deletar funcionário. Verifique!</string>
 
 
 </resources>
