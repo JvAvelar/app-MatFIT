@@ -23,11 +23,11 @@ class FuncionarioViewModel(application: Application) : AndroidViewModel(applicat
     private val _deletar = MutableLiveData<Boolean>()
     val deletarFuncionario: LiveData<Boolean> = _deletar
 
-    private val _buscar = MutableLiveData<FuncionarioDTO>()
-    val buscarFuncionario: LiveData<FuncionarioDTO> = _buscar
+    private val _buscar = MutableLiveData<FuncionarioDTO?>()
+    val buscarFuncionario: LiveData<FuncionarioDTO?> = _buscar
 
-    private val _atualizar = MutableLiveData<FuncionarioDTO>()
-    val atualizarFuncionario: LiveData<FuncionarioDTO> = _atualizar
+    private val _atualizar = MutableLiveData<FuncionarioDTO?>()
+    val atualizarFuncionario: LiveData<FuncionarioDTO?> = _atualizar
 
 
     fun listarFuncionarios(){
@@ -44,19 +44,29 @@ class FuncionarioViewModel(application: Application) : AndroidViewModel(applicat
 
     fun buscarFuncionario(cpf: String){
         viewModelScope.launch {
-           _buscar.postValue(repository.buscarFuncionario(cpf))
+            try {
+                _buscar.postValue(repository.buscarFuncionario(cpf))
+            } catch (e: Exception){
+                _buscar.postValue(null)
+                e.printStackTrace()
+            }
         }
     }
 
     fun atualizarFuncionario(cpf: String, funcionario: FuncionarioUpdate){
         viewModelScope.launch {
-            _atualizar.postValue(repository.atualizarFuncionario(cpf, funcionario))
+            try{
+                _atualizar.postValue(repository.atualizarFuncionario(cpf, funcionario))
+            } catch (e: Exception){
+                _atualizar.postValue(null)
+                e.printStackTrace()
+            }
         }
     }
 
     fun deletarFuncionario(cpf:String){
         viewModelScope.launch {
-            repository.deletarFuncionario(cpf)
+            _deletar.postValue(repository.deletarFuncionario(cpf))
         }
     }
 }
