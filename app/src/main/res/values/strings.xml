@@ -28,7 +28,7 @@
     <string name="textErrorName">Insira um nome válido</string>
 <!--    ALUNO-->
     <string name="textErrorSport">Insira um esporte válido</string>
-    <string name="textErrorFuncao">Insira uma funcão válida</string>
+    <string name="textErrorFuncao">Insira uma função válida</string>
     <string name="textErrorCpfExistent">CPF já está cadastrado!</string>
     <string name="textRegisterAluno">Cadastrar aluno</string>
     <string name="textUpdateAluno">Atualizar aluno</string>
