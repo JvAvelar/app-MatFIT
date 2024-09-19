@@ -7,7 +7,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-
     <string name="email">E-mail</string>
     <string name="password">Senha</string>
     <string name="login">Login</string>
@@ -26,7 +25,7 @@
     <string name="update">Atualizar</string>
     <string name="textErrorCpf">CPF inválido</string>
     <string name="textErrorName">Insira um nome válido</string>
-<!--    ALUNO-->
+    <!--    ALUNO-->
     <string name="textErrorSport">Insira um esporte válido</string>
     <string name="textErrorFuncao">Insira uma função válida</string>
     <string name="textErrorCpfExistent">CPF já está cadastrado!</string>
@@ -45,12 +44,15 @@
     <string name="textCardDay">Data do pagamento: </string>
     <string name="textTotalAlunosRegisted">Lista de Alunos</string>
 
-<!--    FUNCIONARIO-->
+    <!--    FUNCIONARIO-->
     <string name="textCardFuncao">Função: </string>
     <string name="textCardCargaHoraria">Carga Horária: </string>
-    <string name="textTotalFuncionariosRegisted">Lista de Funcionários</string>
+    <string name="textListFuncionarios">Lista de Funcionários</string>
+    <string name="textListEquipamentos">Lista de Equipamentos</string>
     <string name="textResultRegisted">0</string>
     <string name="deleteAluno">Excluir aluno</string>
+    <string name="deleteFuncionario">Excluir funcionário</string>
+    <string name="deleteEquipamento">Excluir equipamento</string>
     <string name="textConfirmationDelete">Tem certeza que deseja excluir?</string>
     <string name="yes">Sim</string>
     <string name="cancel">Cancelar</string>
@@ -64,6 +66,8 @@
     <string name="textEnter">Entrar</string>
     <string name="textExit">Sair</string>
     <string name="textRegisterFuncionario">Cadastrar Funcionário</string>
+    <string name="textRegisterEquipamento">Cadastrar Equipamento</string>
+    <string name="textUpdateEquipamento">Atualizar Equipamento</string>
     <string name="textFuncao">Função</string>
     <string name="textCargHoraria">Carga Horária</string>
     <string name="textUpdateFuncionario">Atualizar Funcionário</string>
@@ -73,6 +77,10 @@
     <string name="textValidarCargaHoraria">A carga horária deve ser maior que 0.</string>
     <string name="textSuccessDeleteFuncionario">Funcionário deletado com sucesso!</string>
     <string name="textFailureDeleteFuncionario">Falha ao deletar funcionário. Verifique!</string>
+    <string name="textQuantity">Quantidade</string>
+    <string name="textValidationQuantity">A quantidade deve ser maior que 0</string>
+    <string name="textEquipamentoNotFound">Equipamento não encontrado</string>
+    <string name="textFuncionarioNotFound">Funcionário não encontrado</string>
 
 
 </resources>
