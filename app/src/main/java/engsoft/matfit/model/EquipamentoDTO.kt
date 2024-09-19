@@ -1,7 +1,7 @@
 package engsoft.matfit.model
 
 data class EquipamentoDTO(
-    val id: Int,
+    var id: Int = 0,
     val nome: String,
     val quantidade: Int,
 )
