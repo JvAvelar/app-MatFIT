@@ -39,7 +39,7 @@ class FuncionarioFragment : Fragment() {
             override fun onUpdate(cpf: String) {
                 viewModel.buscarFuncionario(cpf)
                 viewModel.buscarFuncionario.observe(viewLifecycleOwner) { funcionario ->
-                    Log.i("info_onUpdateFuncionario", "Bem sucedido -> $funcionario")
+                    Log.i("info_onUpdateFuncionario", "Operação bem-sucedida -> $funcionario")
                     if (funcionario != null) {
                         val intent = Intent(context, UpdateFuncionarioActivity::class.java)
                         intent.putExtra("cpf", funcionario.cpf)
@@ -49,18 +49,16 @@ class FuncionarioFragment : Fragment() {
                         startActivity(intent)
                     } else {
                         Log.i("info_onUpdateFuncionario", "Erro de execução -> $funcionario")
-                        toast("Funcionário não encontrado")
+                        toast(getString(R.string.textFuncionarioNotFound))
                     }
                 }
             }
 
             override fun onDelete(cpf: String) {
-                AlertDialog.Builder(requireContext()).setTitle(getString(R.string.deleteAluno))
+                AlertDialog.Builder(requireContext()).setTitle(getString(R.string.deleteFuncionario))
                     .setMessage(getString(R.string.textConfirmationDelete))
                     .setPositiveButton(getString(R.string.yes)) { dialog, which ->
-                        viewModel.deletarFuncionario(
-                            cpf
-                        )
+                        viewModel.deletarFuncionario(cpf)
                     }
                     .setNegativeButton(getString(R.string.cancel)) { dialog, which -> null }
                     .create()
