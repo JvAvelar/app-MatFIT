@@ -20,7 +20,7 @@
         <TextView
             android:id="@+id/textQuantity"
             style="@style/CardTextNormal"
-            android:text="@string/textTotalFuncionariosRegisted"
+            android:text="@string/textListFuncionarios"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_chainStyle="packed"
             app:layout_constraintStart_toStartOf="parent"
