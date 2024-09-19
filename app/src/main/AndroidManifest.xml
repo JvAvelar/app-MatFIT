@@ -16,6 +16,12 @@
         android:theme="@style/Theme.MatFIT"
         tools:targetApi="31">
         <activity
+            android:name=".view.equipamentos.UpdateEquipamentoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".view.equipamentos.AddEquipamentoActivity"
+            android:exported="false" />
+        <activity
             android:name=".view.funcionarios.UpdateFuncionarioActivity"
             android:exported="false" />
         <activity
