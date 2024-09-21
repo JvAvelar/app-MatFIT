@@ -20,8 +20,8 @@ class FuncionarioViewModel(application: Application) : AndroidViewModel(applicat
     private val _cadastro = MutableLiveData<Boolean>()
     val cadastroFuncionario: LiveData<Boolean> = _cadastro
 
-    private val _deletar = MutableLiveData<Boolean>()
-    val deletarFuncionario: LiveData<Boolean> = _deletar
+    private val _deletar = MutableLiveData<Boolean?>()
+    val deletarFuncionario: LiveData<Boolean?> = _deletar
 
     private val _buscar = MutableLiveData<FuncionarioDTO?>()
     val buscarFuncionario: LiveData<FuncionarioDTO?> = _buscar
@@ -67,6 +67,11 @@ class FuncionarioViewModel(application: Application) : AndroidViewModel(applicat
     fun deletarFuncionario(cpf:String){
         viewModelScope.launch {
             _deletar.postValue(repository.deletarFuncionario(cpf))
+            listarFuncionarios()
         }
+    }
+
+    fun resetarDeletar(){
+        _deletar.postValue(null)
     }
 }
