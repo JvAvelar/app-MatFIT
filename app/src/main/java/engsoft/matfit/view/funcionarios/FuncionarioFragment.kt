@@ -55,7 +55,8 @@ class FuncionarioFragment : Fragment() {
             }
 
             override fun onDelete(cpf: String) {
-                AlertDialog.Builder(requireContext()).setTitle(getString(R.string.deleteFuncionario))
+                AlertDialog.Builder(requireContext())
+                    .setTitle(getString(R.string.deleteFuncionario))
                     .setMessage(getString(R.string.textConfirmationDelete))
                     .setPositiveButton(getString(R.string.yes)) { dialog, which ->
                         viewModel.deletarFuncionario(cpf)
@@ -98,11 +99,22 @@ class FuncionarioFragment : Fragment() {
         viewModel.listarFuncionario.observe(viewLifecycleOwner) {
             adapter.updateFuncionario(it)
         }
-        viewModel.deletarFuncionario.observe(viewLifecycleOwner) {
-            if (!it) {
-                toast(getString(R.string.textSuccessDeleteFuncionario))
-                viewModel.listarFuncionarios()
-            } else toast(getString(R.string.textFailureDeleteFuncionario))
+        
+        // valores invertidos para sucesso
+        viewModel.deletarFuncionario.observe(viewLifecycleOwner) { sucesso ->
+            when (sucesso) {
+                false -> {
+                    toast(getString(R.string.textSuccessDeleteFuncionario))
+                    viewModel.resetarDeletar()
+                }
+
+                true -> {
+                    toast(getString(R.string.textFailureDeleteFuncionario))
+                    viewModel.resetarDeletar()
+                }
+
+                else -> {}
+            }
         }
     }
 
