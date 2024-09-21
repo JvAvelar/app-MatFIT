@@ -22,8 +22,8 @@ class AlunoViewModel(application: Application) : AndroidViewModel(application) {
     private val _cadastro = MutableLiveData<Boolean>()
     val cadastro: LiveData<Boolean> = _cadastro
 
-    private val _deletar = MutableLiveData<Boolean>()
-    val deletar: LiveData<Boolean> = _deletar
+    private val _deletar = MutableLiveData<Boolean?>()
+    val deletar: LiveData<Boolean?> = _deletar
 
     private val _buscarAluno = MutableLiveData<AlunoResponse?>()
     val buscarAluno: LiveData<AlunoResponse?> = _buscarAluno
@@ -46,7 +46,12 @@ class AlunoViewModel(application: Application) : AndroidViewModel(application) {
     fun deletarAluno(cpf: String) {
         viewModelScope.launch {
             _deletar.postValue(repository.deletarAluno(cpf))
+            listarAlunos()
         }
+    }
+
+    fun resetarDeletar(){
+        _deletar.postValue(null)
     }
 
     fun buscarAluno(cpf: String) {
