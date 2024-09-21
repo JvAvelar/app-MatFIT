@@ -103,16 +103,23 @@ class AlunoFragment : Fragment() {
             adapter.updateAlunos(listaAlunos)
         }
 
-        viewModel.deletar.observe(viewLifecycleOwner) {
-            if (!it) {
-                toast(getString(R.string.textSucessDeletedAluno))
-                viewModel.listarAlunos()
-            } else
-                toast(getString(R.string.textFailureDeletedAluno))
+        // valores invertidos para sucesso
+        viewModel.deletar.observe(viewLifecycleOwner) { sucesso ->
+            when (sucesso) {
+                false -> {
+                    toast(getString(R.string.textSucessDeletedAluno))
+                    viewModel.resetarDeletar()
+                }
+                true -> {
+                    toast(getString(R.string.textFailureDeletedAluno))
+                    viewModel.resetarDeletar()
+                }
+                else -> {}
+            }
         }
     }
 
-    private fun toast(msg: String){
+    private fun toast(msg: String) {
         Toast.makeText(requireContext(), msg, Toast.LENGTH_SHORT).show()
     }
 }
