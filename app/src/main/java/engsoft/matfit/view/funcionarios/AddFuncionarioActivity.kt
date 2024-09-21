@@ -1,5 +1,6 @@
 package engsoft.matfit.view.funcionarios
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
@@ -16,10 +17,13 @@ class AddFuncionarioActivity : AppCompatActivity() {
     private lateinit var viewModel: FuncionarioViewModel
     private val baseValidacao = BaseValidacao(this)
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
         viewModel = ViewModelProvider(this)[FuncionarioViewModel::class.java]
+
+        binding.cargaHoraria.setText("1")
 
         observadores()
 
@@ -42,7 +46,6 @@ class AddFuncionarioActivity : AppCompatActivity() {
         val nome = binding.name.text.toString()
         val funcao = binding.funcao.text.toString()
         val cargaHoraria = binding.cargaHoraria.text.toString().toInt()
-        val funcionario = FuncionarioDTO(cpf, nome, funcao, cargaHoraria)
 
         if (!baseValidacao.validarCpf(cpf))
             baseValidacao.toast(getString(R.string.textErrorCpf))
@@ -52,7 +55,7 @@ class AddFuncionarioActivity : AppCompatActivity() {
             baseValidacao.toast(getString(R.string.textErrorFuncao))
         else if (!baseValidacao.validarCargaHoraria(cargaHoraria))
             baseValidacao.toast(getString(R.string.textValidarCargaHoraria))
-        else viewModel.cadastrarFuncionario(funcionario)
+        else viewModel.cadastrarFuncionario(FuncionarioDTO(cpf, nome, funcao, cargaHoraria))
     }
 
     private fun observadores() {
