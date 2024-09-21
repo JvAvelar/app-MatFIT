@@ -30,8 +30,8 @@ class AddAlunoActivity : AppCompatActivity() {
     private fun observadores() {
         viewModel.cadastro.observe(this) {
             if (it) {
-                finish()
                 baseValidacao.toast(getString(R.string.textSucessRegisterAluno))
+                finish()
             } else
                 baseValidacao.toast(getString(R.string.textFailureRegisterAluno))
         }
