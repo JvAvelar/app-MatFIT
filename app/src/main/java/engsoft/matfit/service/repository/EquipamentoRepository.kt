@@ -9,15 +9,15 @@ class EquipamentoRepository {
 
     private val remote = RetrofitService.getService(EquipamentoService::class.java)
 
-    suspend fun cadastrarEquipamento(equipamento: EquipamentoDTO): EquipamentoDTO? {
-        var equipamentoRetornado: EquipamentoDTO? = null
+    suspend fun cadastrarEquipamento(equipamento: EquipamentoDTO): Boolean {
+        var sucesso = false
         try {
             val retorno = remote.cadastrarEquipamento(equipamento)
             if (retorno.isSuccessful) {
                 retorno.body()?.let {
                     Log.i("info_cadastrarEquipamento", "Operação bem-sucedida: $it")
-                    equipamentoRetornado = it
-                    return equipamentoRetornado
+                    sucesso = true
+                    return sucesso
                 }
             } else {
                 Log.i(
@@ -29,7 +29,7 @@ class EquipamentoRepository {
             Log.i("info_cadastrarEquipamento", "Falhou -> ${e.message}")
             e.printStackTrace()
         }
-        return equipamentoRetornado
+        return sucesso
     }
 
     suspend fun buscarEquipamento(id: Int): EquipamentoDTO? {
@@ -109,8 +109,11 @@ class EquipamentoRepository {
                     Log.i("info_listarEquipamentos", "Operação bem-sucedida: $list")
                     return list
                 }
+            } else{
+                Log.i("info_listarEquipamentos", "Erro na operação -> ${retorno.code()} - ${retorno.message()}")
             }
         } catch (e: Exception){
+            Log.i("info_listarEquipamentos", "Falhou -> ${e.message}")
             e.printStackTrace()
         }
         return emptyList()
