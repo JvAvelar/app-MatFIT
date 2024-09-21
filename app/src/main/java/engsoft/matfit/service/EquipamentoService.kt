@@ -12,13 +12,17 @@ import retrofit2.http.Path
 
 interface EquipamentoService {
 
+    @GET("/equipamento")
+    @Headers("Content-Type: application/json")
+    suspend fun listarEquipamentos(): Response<List<EquipamentoDTO>>
+
     @GET("/equipamento/{id}")
     @Headers("Content-Type: application/json")
     suspend fun buscarEquipamento(
         @Path("id") id: Int
     ): Response<EquipamentoDTO>
 
-    @GET("/equipamento")
+    @POST("/equipamento")
     @Headers("Content-Type: application/json")
     suspend fun cadastrarEquipamento(
         @Body equipamento: EquipamentoDTO
@@ -36,9 +40,5 @@ interface EquipamentoService {
     suspend fun deletarEquipamento(
         @Path("id") id: Int
     ): Response<Boolean>
-
-    @POST("/equipamento")
-    @Headers("Content-Type: application/json")
-    suspend fun listarEquipamentos(): Response<List<EquipamentoDTO>>
 
 }
