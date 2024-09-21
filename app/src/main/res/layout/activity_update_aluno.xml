@@ -40,7 +40,6 @@
     <EditText
         android:id="@+id/editName"
         style="@style/EditText"
-        android:gravity="center"
         android:hint="@string/name"
         android:inputType="textPersonName"
         android:maxLength="40" />
@@ -48,7 +47,6 @@
     <EditText
         android:id="@+id/editSport"
         style="@style/EditText"
-        android:gravity="center"
         android:hint="@string/sport"
         android:inputType="textPersonName"
         android:maxLength="40" />
