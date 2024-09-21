@@ -77,10 +77,16 @@
     <string name="textValidarCargaHoraria">A carga horária deve ser maior que 0.</string>
     <string name="textSuccessDeleteFuncionario">Funcionário deletado com sucesso!</string>
     <string name="textFailureDeleteFuncionario">Falha ao deletar funcionário. Verifique!</string>
-    <string name="textQuantity">Quantidade</string>
+    <string name="textQuantity">Quantidade:</string>
     <string name="textValidationQuantity">A quantidade deve ser maior que 0</string>
     <string name="textEquipamentoNotFound">Equipamento não encontrado</string>
     <string name="textFuncionarioNotFound">Funcionário não encontrado</string>
+    <string name="textSuccessRegisterEquipamento">Equipamento cadastrado com sucesso!</string>
+    <string name="textFailureRegisterEquipamento">Falha ao cadastrar o equipamento. Verifique!</string>
+    <string name="textSuccessDeleteEquipamento">Equipamento removido com sucesso!</string>
+    <string name="textFailureDeleteEquipamento">Falha ao deletar o equipamento. Verifique!</string>
+    <string name="textSuccessUpdateEquipamento">Equipamento atualizado com sucesso!</string>
+    <string name="textFailureUpdateEquipamento">Falha ao atualizar o equipamento. Verifique!</string>
 
 
 </resources>
