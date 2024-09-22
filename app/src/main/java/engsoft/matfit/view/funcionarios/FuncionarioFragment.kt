@@ -14,6 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import engsoft.matfit.R
 import engsoft.matfit.databinding.FragmentFuncionarioBinding
 import engsoft.matfit.listener.OnFuncionarioListener
+import engsoft.matfit.model.Constantes
 import engsoft.matfit.view.funcionarios.adapter.FuncionarioAdapter
 import engsoft.matfit.view.viewmodel.FuncionarioViewModel
 
@@ -42,10 +43,10 @@ class FuncionarioFragment : Fragment() {
                     Log.i("info_onUpdateFuncionario", "Operação bem-sucedida -> $funcionario")
                     if (funcionario != null) {
                         val intent = Intent(context, UpdateFuncionarioActivity::class.java)
-                        intent.putExtra("cpf", funcionario.cpf)
-                        intent.putExtra("nome", funcionario.nome)
-                        intent.putExtra("funcao", funcionario.funcao)
-                        intent.putExtra("cargaHoraria", funcionario.cargaHoraria)
+                        intent.putExtra(Constantes.Funcionario.CPF, funcionario.cpf)
+                        intent.putExtra(Constantes.Funcionario.NOME, funcionario.nome)
+                        intent.putExtra(Constantes.Funcionario.FUNCAO, funcionario.funcao)
+                        intent.putExtra(Constantes.Funcionario.CARGA_HORARIA, funcionario.cargaHoraria)
                         startActivity(intent)
                     } else {
                         Log.i("info_onUpdateFuncionario", "Erro de execução -> $funcionario")
