@@ -123,4 +123,51 @@ class AlunoRepository(context: Context) : BaseValidacao(context) {
         }
         return alunoRetorno
     }
+
+    suspend fun realizarPagamento(cpf: String): Boolean {
+        var sucesso = false
+        try {
+            val retorno = remote.realizarPagamento(cpf)
+            if (retorno.isSuccessful) {
+                retorno.body()?.let {
+                    Log.i("info_realizarPagamento", "Operação bem-sucedida: $it")
+                    sucesso = it
+                    return sucesso
+                }
+            } else {
+                Log.i(
+                    "info_realizarPagamento",
+                    "Erro na Operação -> ${retorno.code()} - ${retorno.message()}"
+                )
+            }
+
+        } catch (e: Exception) {
+            Log.i("info_realizarPagamento", "Erro durante a execução ${e.message}")
+            e.printStackTrace()
+        }
+        return sucesso
+    }
+
+    suspend fun verificarPagamento(cpf: String): Boolean {
+        var sucesso = false
+        try {
+            val retorno = remote.verificarPagamento(cpf)
+            if (retorno.isSuccessful) {
+                retorno.body()?.let {
+                    Log.i("info_verificarPagamento", "Operação bem-sucedida: $it")
+                    sucesso = it.pagamentoAtrasado
+                    return sucesso
+                }
+            } else {
+                Log.i(
+                    "info_verificarPagamento",
+                    "Erro na Operação -> ${retorno.code()} - ${retorno.message()}"
+                )
+            }
+        } catch (e: Exception) {
+            Log.i("info_verificarPagamento", "Erro durante a execução ${e.message}")
+            e.printStackTrace()
+        }
+        return sucesso
+    }
 }
