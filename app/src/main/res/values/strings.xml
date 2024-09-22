@@ -87,6 +87,11 @@
     <string name="textFailureDeleteEquipamento">Falha ao deletar o equipamento. Verifique!</string>
     <string name="textSuccessUpdateEquipamento">Equipamento atualizado com sucesso!</string>
     <string name="textFailureUpdateEquipamento">Falha ao atualizar o equipamento. Verifique!</string>
+    <string name="textAlunoNotFound">Aluno não encontrado</string>
+    <string name="textConfirmPayment">Confirmar Pagamento</string>
+    <string name="textStatusPayment">Status do Pagamento:</string>
+    <string name="textSuccessPayment">Pagamento realizado com sucesso!</string>
+    <string name="textFailurePayment">Falha ao realizar o pagamento. Verifique!</string>
 
 
 </resources>
