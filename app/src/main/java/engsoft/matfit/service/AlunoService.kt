@@ -36,7 +36,7 @@ interface AlunoService {
     @Headers("Content-Type: application/json")
     suspend fun atualizarAluno(
         @Path("cpf") cpf: String,
-        @Body aluno: AlunoUpdate,
+        @Body aluno: AlunoUpdate
     ): Response<AlunoResponse>
 
     @GET("/aluno/{cpf}")
@@ -46,13 +46,14 @@ interface AlunoService {
     ): Response<AlunoResponse>
 
 
-    @PATCH("/aluno/pagar/cpf}")
+    // TODO -> DEU ERRO 404 na operação, verificar!
+    @PATCH("/aluno/pagar/{cpf}")
     @Headers("Content-Type: application/json")
     suspend fun realizarPagamento(
         @Path("cpf") cpf: String
     ): Response<Boolean>
 
-    @PATCH("/aluno/pagamento/cpf}")
+    @PATCH("/aluno/pagamento/{cpf}")
     @Headers("Content-Type: application/json")
     suspend fun verificarPagamento(
         @Path("cpf") cpf: String
