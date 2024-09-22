@@ -14,8 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import engsoft.matfit.R
 import engsoft.matfit.databinding.FragmentEquipamentoBinding
 import engsoft.matfit.listener.OnEquipamentoListener
+import engsoft.matfit.model.Constantes
 import engsoft.matfit.view.equipamentos.adapter.EquipamentoAdapter
-import engsoft.matfit.view.funcionarios.UpdateFuncionarioActivity
 import engsoft.matfit.view.viewmodel.EquipamentoViewModel
 
 class EquipamentoFragment : Fragment() {
@@ -55,9 +55,9 @@ class EquipamentoFragment : Fragment() {
                     if (equipamento != null) {
                         Log.i("info_onUpdateEquipamento", "Operação bem-sucedida -> $equipamento")
                         val intent = Intent(context, UpdateEquipamentoActivity::class.java)
-                        intent.putExtra("id", equipamento.id)
-                        intent.putExtra("nome", equipamento.nome)
-                        intent.putExtra("quantidade", equipamento.quantidade)
+                        intent.putExtra(Constantes.Equipamento.ID, equipamento.id)
+                        intent.putExtra(Constantes.Equipamento.NOME, equipamento.nome)
+                        intent.putExtra(Constantes.Equipamento.QUANTIDADE, equipamento.quantidade)
                         startActivity(intent)
                     } else {
                         Log.i("info_onUpdateEquipamento", "Erro de execução -> $equipamento")
