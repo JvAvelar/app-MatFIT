@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".view.alunos.PagamentoAlunoActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintTitle"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageBack"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="32dp"
+            android:src="@drawable/ic_back"
+            app:layout_constraintEnd_toStartOf="@id/textTitle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/textTitle"
+            style="@style/TextTitles"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="32dp"
+            android:text="@string/textConfirmPayment"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/imageBack"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintCard"
+        android:layout_width="400dp"
+        android:layout_height="250dp"
+        android:layout_marginTop="80dp"
+        android:background="@drawable/shape_model"
+        android:backgroundTint="@color/blue"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintTitle">
+
+        <TextView
+            android:id="@+id/textCpf"
+            style="@style/CardTextNormal"
+            android:text="@string/textCardCpf"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textDoCpf"
+            style="@style/CardTextDo"
+            android:text="@string/cpf"
+            app:layout_constraintStart_toEndOf="@id/textCpf"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textName"
+            style="@style/CardTextNormal"
+            android:layout_marginTop="8dp"
+            android:text="@string/textCardName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textCpf" />
+
+        <TextView
+            android:id="@+id/textDoName"
+            style="@style/CardTextDo"
+            android:text="@string/name"
+            app:layout_constraintStart_toEndOf="@id/textName"
+            app:layout_constraintTop_toTopOf="@id/textName" />
+
+        <TextView
+            android:id="@+id/textSport"
+            style="@style/CardTextNormal"
+            android:layout_marginTop="8dp"
+            android:text="@string/textCardSport"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textName" />
+
+        <TextView
+            android:id="@+id/textDay"
+            style="@style/CardTextNormal"
+            android:layout_marginTop="8dp"
+            android:text="@string/textCardDay"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textSport" />
+
+        <TextView
+            android:id="@+id/textDoDay"
+            style="@style/CardTextDo"
+            android:text="@string/day"
+            app:layout_constraintStart_toEndOf="@id/textDay"
+            app:layout_constraintTop_toTopOf="@id/textDay" />
+
+        <TextView
+            android:id="@+id/textDoSport"
+            style="@style/CardTextDo"
+            android:text="@string/sport"
+            app:layout_constraintStart_toEndOf="@id/textSport"
+            app:layout_constraintTop_toTopOf="@id/textSport" />
+
+        <TextView
+            android:id="@+id/textStatus"
+            style="@style/CardTextNormal"
+            android:layout_marginTop="8dp"
+            android:text="@string/textStatusPayment"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textDay" />
+
+        <ImageView
+            android:id="@+id/imageStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_done"
+            app:layout_constraintStart_toEndOf="@id/textStatus"
+            app:layout_constraintTop_toTopOf="@id/textStatus" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/btnPagar"
+        style="@style/Buttons"
+        android:layout_marginTop="20dp"
+        android:text="Pagar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/constraintCard" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
