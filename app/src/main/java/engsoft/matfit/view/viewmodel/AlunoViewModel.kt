@@ -31,6 +31,12 @@ class AlunoViewModel(application: Application) : AndroidViewModel(application) {
     private val _atualizarAluno = MutableLiveData<AlunoResponse?>()
     val atualizarAluno: LiveData<AlunoResponse?> = _atualizarAluno
 
+    private val _realizarPagamento = MutableLiveData<Boolean>()
+    val realizarPagamento : LiveData<Boolean> = _realizarPagamento
+
+    private val _verificarPagamento = MutableLiveData<Boolean>()
+    val verificarPagamento : LiveData<Boolean> = _verificarPagamento
+
     fun listarAlunos() {
         viewModelScope.launch {
             _listarAlunos.postValue(repository.listarAlunos())
@@ -73,6 +79,18 @@ class AlunoViewModel(application: Application) : AndroidViewModel(application) {
                 _atualizarAluno.postValue(null)
                 e.printStackTrace()
             }
+        }
+    }
+
+    fun realizarPagamento(cpf: String){
+        viewModelScope.launch {
+            _realizarPagamento.postValue(repository.realizarPagamento(cpf))
+        }
+    }
+
+    fun verificarPagamento(cpf: String){
+        viewModelScope.launch {
+            _verificarPagamento.postValue(repository.verificarPagamento(cpf))
         }
     }
 }
