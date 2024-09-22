@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import engsoft.matfit.R
 import engsoft.matfit.databinding.FragmentAlunoBinding
 import engsoft.matfit.listener.OnAlunoListener
+import engsoft.matfit.model.Constantes
 import engsoft.matfit.view.alunos.adapter.AlunoAdapter
 import engsoft.matfit.view.viewmodel.AlunoViewModel
 
@@ -53,7 +54,22 @@ class AlunoFragment : Fragment() {
             }
 
             override fun OnPayment(cpf: String) {
-                // startActivity(Intent(context, Payment::class.java))
+                viewModel.buscarAluno(cpf)
+                viewModel.buscarAluno.observe(viewLifecycleOwner) { aluno ->
+                    if(aluno != null) {
+                        Log.i("info_OnPaymentAluno", "Operação bem-sucedida -> $aluno")
+                        val intent = Intent(context, PagamentoAlunoActivity::class.java)
+                        intent.putExtra(Constantes.Aluno.CPF, aluno.cpf)
+                        intent.putExtra(Constantes.Aluno.NOME, aluno.nome)
+                        intent.putExtra(Constantes.Aluno.ESPORTE, aluno.esporte)
+                        intent.putExtra(Constantes.Aluno.DATA_PAGAMENTO, aluno.dataPagamento)
+                        intent.putExtra(Constantes.Aluno.PAGAMENTO_ATRASADO, aluno.pagamentoAtrasado)
+                        startActivity(intent)
+                    } else {
+                        Log.i("info_OnPaymentAluno", "Erro de execução -> $aluno")
+                        toast(getString(R.string.textAlunoNotFound))
+                    }
+                }
             }
         }
 
@@ -86,13 +102,13 @@ class AlunoFragment : Fragment() {
             Log.i("info_onUpdate", "Bem sucedido -> $aluno")
             if (aluno != null) {
                 val intent = Intent(context, UpdateAlunoActivity::class.java)
-                intent.putExtra("cpf", aluno.cpf)
-                intent.putExtra("nome", aluno.nome)
-                intent.putExtra("esporte", aluno.esporte)
+                intent.putExtra(Constantes.Aluno.CPF, aluno.cpf)
+                intent.putExtra(Constantes.Aluno.NOME, aluno.nome)
+                intent.putExtra(Constantes.Aluno.ESPORTE, aluno.esporte)
                 startActivity(intent)
             } else {
                 Log.i("info_onUpdate", "Erro de execução -> $aluno")
-                toast("Aluno não encontrado")
+                toast(getString(R.string.textAlunoNotFound))
             }
         }
     }
@@ -110,10 +126,12 @@ class AlunoFragment : Fragment() {
                     toast(getString(R.string.textSucessDeletedAluno))
                     viewModel.resetarDeletar()
                 }
+
                 true -> {
                     toast(getString(R.string.textFailureDeletedAluno))
                     viewModel.resetarDeletar()
                 }
+
                 else -> {}
             }
         }
