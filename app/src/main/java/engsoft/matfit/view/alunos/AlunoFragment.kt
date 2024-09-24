@@ -54,8 +54,8 @@ class AlunoFragment : Fragment() {
             }
 
             override fun OnPayment(cpf: String) {
-                viewModel.buscarAluno(cpf)
-                viewModel.buscarAluno.observe(viewLifecycleOwner) { aluno ->
+                viewModel.verificarPagamento(cpf)
+                viewModel.verificarPagamento.observe(viewLifecycleOwner) { aluno ->
                     if(aluno != null) {
                         Log.i("info_OnPaymentAluno", "Operação bem-sucedida -> $aluno")
                         val intent = Intent(context, PagamentoAlunoActivity::class.java)
