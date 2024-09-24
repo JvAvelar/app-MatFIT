@@ -34,8 +34,8 @@ class AlunoViewModel(application: Application) : AndroidViewModel(application) {
     private val _realizarPagamento = MutableLiveData<Boolean>()
     val realizarPagamento : LiveData<Boolean> = _realizarPagamento
 
-    private val _verificarPagamento = MutableLiveData<Boolean>()
-    val verificarPagamento : LiveData<Boolean> = _verificarPagamento
+    private val _verificarPagamento = MutableLiveData<AlunoResponse?>()
+    val verificarPagamento : LiveData<AlunoResponse?> = _verificarPagamento
 
     fun listarAlunos() {
         viewModelScope.launch {
