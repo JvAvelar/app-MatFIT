@@ -1,109 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:layout_marginTop="8dp"
-    android:orientation="vertical">
+    android:layout_height="match_parent"
+    android:layout_gravity="center_horizontal"
+    android:layout_marginTop="8dp">
 
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:backgroundTint="@color/blue">
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="390dp"
+        android:layout_height="220dp"
+        android:background="@drawable/shape_model"
+        android:layout_gravity="center_horizontal"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/textCpf"
+            style="@style/CardTextNormal"
+            android:text="@string/textCardCpf"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="220dp"
-            android:padding="8dp">
+        <TextView
+            android:id="@+id/textDoCpf"
+            style="@style/CardTextDo"
+            android:text="@string/cpf"
+            app:layout_constraintStart_toEndOf="@id/textCpf"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textCpf"
-                style="@style/CardTextNormal"
-                android:text="@string/textCardCpf"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textName"
+            style="@style/CardTextNormal"
+            android:layout_marginTop="8dp"
+            android:text="@string/textCardName"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textCpf" />
 
-            <TextView
-                android:id="@+id/textDoCpf"
-                style="@style/CardTextDo"
-                android:text="@string/cpf"
-                app:layout_constraintStart_toEndOf="@id/textCpf"
-                app:layout_constraintTop_toTopOf="parent" />
+        <TextView
+            android:id="@+id/textDoName"
+            style="@style/CardTextDo"
+            android:text="@string/name"
+            app:layout_constraintStart_toEndOf="@id/textName"
+            app:layout_constraintTop_toTopOf="@id/textName" />
 
-            <TextView
-                android:id="@+id/textName"
-                style="@style/CardTextNormal"
-                android:text="@string/textCardName"
-                android:layout_marginTop="8dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textCpf" />
-
-            <TextView
-                android:id="@+id/textDoName"
-                style="@style/CardTextDo"
-                android:text="@string/name"
-                app:layout_constraintStart_toEndOf="@id/textName"
-                app:layout_constraintTop_toTopOf="@id/textName" />
-
-            <TextView
-                android:id="@+id/textSport"
-                style="@style/CardTextNormal"
-                android:layout_marginTop="8dp"
-                android:text="@string/textCardFuncao"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textName" />
+        <TextView
+            android:id="@+id/textSport"
+            style="@style/CardTextNormal"
+            android:layout_marginTop="8dp"
+            android:text="@string/textCardFuncao"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textName" />
 
 
-            <TextView
-                android:id="@+id/textDay"
-                style="@style/CardTextNormal"
-                android:layout_marginTop="8dp"
-                android:text="@string/textCardCargaHoraria"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/textSport" />
+        <TextView
+            android:id="@+id/textDay"
+            style="@style/CardTextNormal"
+            android:layout_marginTop="8dp"
+            android:text="@string/textCardCargaHoraria"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textSport" />
 
-            <TextView
-                android:id="@+id/textDoDay"
-                style="@style/CardTextDo"
-                android:text="@string/textResultRegisted"
-                app:layout_constraintStart_toEndOf="@id/textDay"
-                app:layout_constraintTop_toTopOf="@id/textDay" />
-
-
-            <TextView
-                android:id="@+id/textDoSport"
-                style="@style/CardTextDo"
-                android:text="@string/textFuncao"
-                app:layout_constraintStart_toEndOf="@id/textSport"
-                app:layout_constraintTop_toTopOf="@id/textSport" />
+        <TextView
+            android:id="@+id/textDoDay"
+            style="@style/CardTextDo"
+            android:text="@string/textResultRegisted"
+            app:layout_constraintStart_toEndOf="@id/textDay"
+            app:layout_constraintTop_toTopOf="@id/textDay" />
 
 
-            <ImageView
-                android:id="@+id/iconDelete"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_delete"
-                android:layout_marginEnd="16dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/iconEdit"/>
-
-            <ImageView
-                android:id="@+id/iconEdit"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:src="@drawable/ic_edit"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toEndOf="@id/iconDelete"
-                app:layout_constraintEnd_toEndOf="parent" />
+        <TextView
+            android:id="@+id/textDoSport"
+            style="@style/CardTextDo"
+            android:text="@string/textFuncao"
+            app:layout_constraintStart_toEndOf="@id/textSport"
+            app:layout_constraintTop_toTopOf="@id/textSport" />
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/iconDelete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="16dp"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iconEdit"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    </androidx.cardview.widget.CardView>
+        <ImageView
+            android:id="@+id/iconEdit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_edit"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iconDelete" />
 
-</LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
