@@ -148,15 +148,15 @@ class AlunoRepository(context: Context) : BaseValidacao(context) {
         return sucesso
     }
 
-    suspend fun verificarPagamento(cpf: String): Boolean {
-        var sucesso = false
+    suspend fun verificarPagamento(cpf: String): AlunoResponse? {
+        var aluno: AlunoResponse? = null
         try {
             val retorno = remote.verificarPagamento(cpf)
             if (retorno.isSuccessful) {
                 retorno.body()?.let {
                     Log.i("info_verificarPagamento", "Operação bem-sucedida: $it")
-                    sucesso = it.pagamentoAtrasado
-                    return sucesso
+                    aluno = it
+                    return aluno
                 }
             } else {
                 Log.i(
@@ -168,6 +168,6 @@ class AlunoRepository(context: Context) : BaseValidacao(context) {
             Log.i("info_verificarPagamento", "Erro durante a execução ${e.message}")
             e.printStackTrace()
         }
-        return sucesso
+        return aluno
     }
 }
