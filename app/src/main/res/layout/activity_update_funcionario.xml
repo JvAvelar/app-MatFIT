@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center_vertical"
-    android:background="@drawable/shape_screens"
+    android:background="@drawable/shape_background"
     tools:context=".view.funcionarios.AddFuncionarioActivity">
 
 
