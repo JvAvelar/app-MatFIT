@@ -97,10 +97,15 @@ class FuncionarioFragment : Fragment() {
     }
 
     private fun observadores() {
-        viewModel.listarFuncionario.observe(viewLifecycleOwner) {
-            adapter.updateFuncionario(it)
+        viewModel.listarFuncionario.observe(viewLifecycleOwner) { listFuncionario ->
+            if (listFuncionario.isNullOrEmpty())
+                mostrarMsgListaVazia()
+            else {
+                mostrarCadModel()
+                adapter.updateFuncionario(listFuncionario)
+            }
         }
-        
+
         // valores invertidos para sucesso
         viewModel.deletarFuncionario.observe(viewLifecycleOwner) { sucesso ->
             when (sucesso) {
@@ -117,6 +122,16 @@ class FuncionarioFragment : Fragment() {
                 else -> {}
             }
         }
+    }
+
+    private fun mostrarMsgListaVazia() {
+        binding.recyclerListFuncionario.visibility = View.GONE
+        binding.emptyView.visibility = View.VISIBLE
+    }
+
+    private fun mostrarCadModel() {
+        binding.recyclerListFuncionario.visibility = View.VISIBLE
+        binding.emptyView.visibility = View.GONE
     }
 
     private fun toast(msg: String) {
