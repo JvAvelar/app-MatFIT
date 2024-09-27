@@ -3,9 +3,7 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="nav_header_title">Android Studio</string>
-    <string name="nav_header_subtitle">android.studio@android.com</string>
     <string name="nav_header_desc">Navigation header</string>
-    <string name="action_settings">Settings</string>
 
     <string name="email">E-mail</string>
     <string name="password">Senha</string>
@@ -92,6 +90,8 @@
     <string name="textStatusPayment">Status do Pagamento:</string>
     <string name="textSuccessPayment">Pagamento realizado com sucesso!</string>
     <string name="textFailurePayment">Falha ao realizar o pagamento. Verifique!</string>
-
+    <string name="textListEmptyFuncionario">Nenhum Funcionário Cadastrado</string>
+    <string name="textListEmptyEquipamentos">Nenhum Equipamento Cadastrado</string>
+    <string name="textListEmptyAluno">Nenhum Aluno Cadastrado</string>
 
 </resources>
