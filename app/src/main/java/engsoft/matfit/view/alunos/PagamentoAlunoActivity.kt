@@ -29,6 +29,7 @@ class PagamentoAlunoActivity : AppCompatActivity() {
         alterarDados()
         click()
         observadores()
+        supportActionBar?.hide()
     }
 
     private fun alterarDados() {
