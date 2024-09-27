@@ -86,6 +86,7 @@ class AlunoFragment : Fragment() {
         return binding.root
     }
 
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
@@ -116,7 +117,12 @@ class AlunoFragment : Fragment() {
     @SuppressLint("SetTextI18n")
     private fun observadores() {
         viewModel.listarAlunos.observe(viewLifecycleOwner) { listaAlunos ->
-            adapter.updateAlunos(listaAlunos)
+            if (listaAlunos.isNullOrEmpty())
+                mostrarMsgListaVazia()
+            else{
+                mostrarCadModel()
+                adapter.updateAlunos(listaAlunos)
+            }
         }
 
         // valores invertidos para sucesso
@@ -135,6 +141,16 @@ class AlunoFragment : Fragment() {
                 else -> {}
             }
         }
+    }
+
+    private fun mostrarMsgListaVazia() {
+        binding.recyclerListAlunos.visibility = View.GONE
+        binding.emptyView.visibility = View.VISIBLE
+    }
+
+    private fun mostrarCadModel(){
+        binding.recyclerListAlunos.visibility = View.VISIBLE
+        binding.emptyView.visibility = View.GONE
     }
 
     private fun toast(msg: String) {
