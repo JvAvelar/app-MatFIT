@@ -41,6 +41,31 @@
         app:layout_constraintTop_toBottomOf="@id/constraintLayout"
         app:layout_constraintVertical_bias="1.0" />
 
+    <LinearLayout
+        android:id="@+id/empty_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/empty_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/textListEmptyFuncionario"
+            android:textSize="18sp"
+            android:textColor="@android:color/black" />
+
+        <ImageView
+            android:id="@+id/empty_image"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:src="@drawable/img_not_found_png"
+            android:layout_marginTop="20dp" />
+
+    </LinearLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btnAdd"
         style="@style/Buttons"
