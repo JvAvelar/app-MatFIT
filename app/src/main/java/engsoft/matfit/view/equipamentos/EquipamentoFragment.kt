@@ -89,8 +89,13 @@ class EquipamentoFragment : Fragment() {
     }
 
     private fun observadores() {
-        viewModel.listarEquipamentos.observe(viewLifecycleOwner) {
-            adapter.updateEquipamentos(it)
+        viewModel.listarEquipamentos.observe(viewLifecycleOwner) { listEquipamentos ->
+            if (listEquipamentos.isNullOrEmpty())
+                mostrarMsgListaVazia()
+            else {
+                mostrarCadModel()
+                adapter.updateEquipamentos(listEquipamentos)
+            }
         }
 
         // valores invertidos para sucesso
@@ -113,6 +118,16 @@ class EquipamentoFragment : Fragment() {
         binding.btnAdd.setOnClickListener {
             startActivity(Intent(context, AddEquipamentoActivity::class.java))
         }
+    }
+
+    private fun mostrarMsgListaVazia() {
+        binding.recyclerListEquipamento.visibility = View.GONE
+        binding.emptyView.visibility = View.VISIBLE
+    }
+
+    private fun mostrarCadModel(){
+        binding.recyclerListEquipamento.visibility = View.VISIBLE
+        binding.emptyView.visibility = View.GONE
     }
 
     private fun toast(msg: String) {
