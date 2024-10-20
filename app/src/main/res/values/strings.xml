@@ -93,5 +93,6 @@
     <string name="textListEmptyFuncionario">Nenhum Funcionário Cadastrado</string>
     <string name="textListEmptyEquipamentos">Nenhum Equipamento Cadastrado</string>
     <string name="textListEmptyAluno">Nenhum Aluno Cadastrado</string>
+    <string name="tetxConfirmPayment">Confirmar</string>
 
 </resources>
